@@ -13,7 +13,7 @@ An app to organize all the items in your home
 ## Database
 
 buildings(title)  
-rooms(title, <u>building</u>)  
-position(title, <u>room</u>)
+rooms(title, <ins>building</ins>)  
+position(title, <ins>room</ins>)
 
-items(title, quantity, <u>building</u>, <u>room</u>, <u>position</u>)
+items(title, quantity, <ins>building</ins>, <ins>room</ins>, <ins>position</ins>)
