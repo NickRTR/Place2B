@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import { addBuilding } from "$lib/pb";
+</script>
+
+<body>
+	<h1>Place2B</h1>
+
+	<button type="submit" on:click={addBuilding}>Test</button>
+</body>
