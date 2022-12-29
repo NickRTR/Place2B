@@ -27,7 +27,7 @@
 		<p>
 			<strong>Positions:</strong>
 			{#each data.positions as position}
-				<span>{room.title}, </span>
+				<span>{position.title}, </span>
 			{/each}
 		</p>
 	</div>
