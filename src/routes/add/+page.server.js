@@ -6,5 +6,21 @@ export const actions = {
 		const title = data.get("title");
 		// create building database entry
 		await pb.collection("buildings").create({ title });
+	},
+
+	addRoom: async ({ request }) => {
+		const data = await request.formData();
+		const title = data.get("title");
+		const building = data.get("building");
+		// create building database entry
+		await pb.collection("rooms").create({ title, building });
+	},
+
+	addPosition: async ({ request }) => {
+		const data = await request.formData();
+		const title = data.get("title");
+		const room = data.get("room");
+		// create building database entry
+		await pb.collection("positions").create({ title, room });
 	}
 };
