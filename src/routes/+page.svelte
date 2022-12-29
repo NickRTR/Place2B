@@ -34,6 +34,15 @@
 				{/each}
 			</p>
 		</div>
+
+		<div class="items">
+			<p>
+				<strong>Items:</strong>
+				{#each data.items as item}
+					<span>{item.title}, </span>
+				{/each}
+			</p>
+		</div>
 	{/if}
 </body>
 

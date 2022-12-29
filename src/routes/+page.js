@@ -14,10 +14,15 @@ export async function load() {
 			sort: "-created"
 		});
 
+		const items = await pb.collection("items").getFullList(200 /* batch size */, {
+			sort: "-created"
+		});
+
 		return {
 			buildings,
 			rooms,
-			positions
+			positions,
+			items
 		};
 	} catch (e) {
 		return {
