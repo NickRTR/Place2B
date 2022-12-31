@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"db": "./pocketbase/pocketbase serve --http='192.168.200.216:80'",
+		"db": "./pocketbase/pocketbase serve --http='192.168.200.216:8090'",
 		"dev": "vite dev & ./pocketbase/pocketbase serve",
 		"build": "vite build",
 		"preview": "vite preview",
