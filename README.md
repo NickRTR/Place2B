@@ -17,3 +17,8 @@ rooms(title, <ins>building</ins>)
 position(title, <ins>room</ins>)
 
 items(title, quantity, <ins>building</ins>, <ins>room</ins>, <ins>position</ins>)
+
+## Run on Server:
+
+1. `npm run build`
+2. `npm run db & npm run preview -- --host`
