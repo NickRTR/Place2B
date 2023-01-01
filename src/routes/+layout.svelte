@@ -11,10 +11,31 @@
 </body>
 
 <style>
+	:global(:root) {
+		--background: #1d3557;
+		--text: #f1faee;
+		--accent: #e63946;
+		--light-accent: #a8dadc;
+	}
+
 	:global(body) {
 		margin: 0;
 		font-family: monospace;
 		font-size: 16px;
+		background-color: var(--background);
+		color: var(--text);
+	}
+
+	:global(h1) {
+		color: var(--accent);
+	}
+
+	:global(a) {
+		color: var(--text);
+	}
+
+	:global(a:hover) {
+		color: var(--light-accent);
 	}
 
 	body {

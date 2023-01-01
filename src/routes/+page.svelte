@@ -9,45 +9,70 @@
 		<p class="error">Error: {data.error.message}</p>
 	{:else}
 		<div class="buildings">
-			<p>
-				<strong>Buildings:</strong>
+			<h3 class="headline" id="buildings">Buildings</h3>
+			<div class="elements">
 				{#each data.buildings as building}
-					<span>{building.title}, </span>
+					<p>{building.title}</p>
 				{/each}
-			</p>
+			</div>
 		</div>
 
 		<div class="rooms">
-			<p>
-				<strong>Rooms:</strong>
+			<h3 class="headline" id="rooms">Rooms</h3>
+			<div class="elements">
 				{#each data.rooms as room}
-					<span>{room.title}, </span>
+					<p>{room.title}</p>
 				{/each}
-			</p>
+			</div>
 		</div>
 
 		<div class="positions">
-			<p>
-				<strong>Positions:</strong>
+			<h3 class="headline" id="positions">Positions</h3>
+			<div class="elements">
 				{#each data.positions as position}
-					<span>{position.title}, </span>
+					<p>{position.title}</p>
 				{/each}
-			</p>
+			</div>
 		</div>
 
-		<div class="items">
+		<!-- <div class="items">
 			<p>
 				<strong>Items:</strong>
 				{#each data.items as item}
 					<span>{item.title}, </span>
 				{/each}
 			</p>
-		</div>
+		</div> -->
 	{/if}
 </body>
 
 <style>
 	.error {
 		color: red;
+	}
+
+	.headline {
+		display: inline;
+		padding: 0.25rem 0.5rem;
+	}
+
+	#buildings {
+		border-radius: 0.5rem;
+		border: 3px solid var(--accent);
+	}
+
+	#rooms {
+		border-radius: 2rem;
+		border: 3px solid var(--accent);
+	}
+
+	#positions {
+		border-radius: 2rem;
+		border: 3px dotted var(--accent);
+	}
+
+	.elements {
+		border-left: 3px solid var(--accent);
+		padding-left: 0.5rem;
 	}
 </style>
