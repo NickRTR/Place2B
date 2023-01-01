@@ -12,7 +12,7 @@
 			<h3 class="headline" id="buildings">Buildings</h3>
 			<div class="elements">
 				{#each data.buildings as building}
-					<p>{building.title}</p>
+					<p class="element">{building.title}</p>
 				{/each}
 			</div>
 		</div>
@@ -21,7 +21,7 @@
 			<h3 class="headline" id="rooms">Rooms</h3>
 			<div class="elements">
 				{#each data.rooms as room}
-					<p>{room.title}</p>
+					<p class="element">{room.title}</p>
 				{/each}
 			</div>
 		</div>
@@ -30,19 +30,19 @@
 			<h3 class="headline" id="positions">Positions</h3>
 			<div class="elements">
 				{#each data.positions as position}
-					<p>{position.title}</p>
+					<p class="element">{position.title}</p>
 				{/each}
 			</div>
 		</div>
 
-		<!-- <div class="items">
-			<p>
-				<strong>Items:</strong>
+		<div class="items">
+			<!-- <h3 class="headline" id="items">Items</h3> -->
+			<div class="elements">
 				{#each data.items as item}
-					<span>{item.title}, </span>
+					<p class="element">{item.title}</p>
 				{/each}
-			</p>
-		</div> -->
+			</div>
+		</div>
 	{/if}
 </body>
 
@@ -68,11 +68,37 @@
 
 	#positions {
 		border-radius: 2rem;
-		border: 3px dotted var(--accent);
+		border: 3px dashed var(--accent);
+	}
+
+	/* #items {
+		margin-top: 2rem;
+		border: 3px solid var(--light-accent);
+	} */
+
+	.items {
+		border-top: 3px solid var(--accent);
+		/* padding-top: 1.5rem; */
+	}
+
+	.items .elements {
+		border: none;
+		padding-left: 0;
 	}
 
 	.elements {
 		border-left: 3px solid var(--accent);
 		padding-left: 0.5rem;
+		display: flex;
+		max-width: 300px;
+		flex-wrap: wrap;
+		margin-block: 1rem;
+	}
+
+	.element {
+		border: 2px solid white;
+		border-radius: 0.5rem;
+		padding: 0.2rem;
+		margin: 0.25rem;
 	}
 </style>
