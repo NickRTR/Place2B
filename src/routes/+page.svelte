@@ -1,5 +1,58 @@
 <script>
+	import pb from "$lib/pocketbase";
+
 	export let data;
+
+	let selectedFilters = {
+		building: "",
+		room: "",
+		position: ""
+	};
+
+	function setFilter(type, id) {
+		if (selectedFilters[type] == id) {
+			selectedFilters[type] = "";
+		} else {
+			selectedFilters[type] = id;
+		}
+		filter();
+	}
+
+	async function filter() {
+		let filterString = "";
+		let filters = [];
+
+		if (selectedFilters.building.length > 0) {
+			filters.push(`building = ${JSON.stringify(selectedFilters.building)}`);
+		}
+		if (selectedFilters.room.length > 0) {
+			filters.push(`room = ${JSON.stringify(selectedFilters.room)}`);
+		}
+		if (selectedFilters.position.length > 0) {
+			filters.push(`position = ${JSON.stringify(selectedFilters.position)}`);
+		}
+
+		if (filters.length == 1) {
+			filterString = filters[0];
+		} else if (filters.length > 1) {
+			filterString = "(";
+			for (let i = 0; i < filters.length; i++) {
+				if (i == 0) {
+					filterString += filters[0];
+				} else {
+					filterString += " && " + filters[i];
+				}
+			}
+			filterString += ")";
+		}
+
+		const res = await pb.collection("items").getFullList(200 /* batch size */, {
+			sort: "title",
+			filter: filterString
+		});
+
+		data.items = res;
+	}
 </script>
 
 <body>
@@ -12,7 +65,13 @@
 			<h3 class="headline" id="buildings">Buildings</h3>
 			<div class="elements">
 				{#each data.buildings as building}
-					<p class="element">{building.title}</p>
+					<button
+						on:click={() => {
+							setFilter("building", building.id);
+						}}
+						class:active={selectedFilters.building == building.id}
+						class="element">{building.title}</button
+					>
 				{/each}
 			</div>
 		</div>
@@ -21,7 +80,13 @@
 			<h3 class="headline" id="rooms">Rooms</h3>
 			<div class="elements">
 				{#each data.rooms as room}
-					<p class="element">{room.title}</p>
+					<button
+						on:click={() => {
+							setFilter("room", room.id);
+						}}
+						class:active={selectedFilters.room == room.id}
+						class="element">{room.title}</button
+					>
 				{/each}
 			</div>
 		</div>
@@ -30,13 +95,18 @@
 			<h3 class="headline" id="positions">Positions</h3>
 			<div class="elements">
 				{#each data.positions as position}
-					<p class="element">{position.title}</p>
+					<button
+						on:click={() => {
+							setFilter("position", position.id);
+						}}
+						class:active={selectedFilters.position == position.id}
+						class="element">{position.title}</button
+					>
 				{/each}
 			</div>
 		</div>
 
 		<div class="items">
-			<!-- <h3 class="headline" id="items">Items</h3> -->
 			<div class="elements">
 				{#each data.items as item}
 					<p class="element">{item.title}</p>
@@ -71,14 +141,8 @@
 		border: 3px dashed var(--accent);
 	}
 
-	/* #items {
-		margin-top: 2rem;
-		border: 3px solid var(--light-accent);
-	} */
-
 	.items {
 		border-top: 3px solid var(--accent);
-		/* padding-top: 1.5rem; */
 	}
 
 	.items .elements {
@@ -100,5 +164,17 @@
 		border-radius: 0.5rem;
 		padding: 0.2rem;
 		margin: 0.25rem;
+	}
+
+	.active {
+		background-color: var(--text);
+		color: var(--background);
+	}
+
+	button {
+		cursor: pointer;
+		background-color: var(--background);
+		color: var(--text);
+		font-size: 16px;
 	}
 </style>

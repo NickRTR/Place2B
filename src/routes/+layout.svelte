@@ -18,12 +18,15 @@
 		--light-accent: #a8dadc;
 	}
 
-	:global(body) {
-		margin: 0;
+	:global(*) {
 		font-family: monospace;
+	}
+
+	:global(body) {
 		font-size: 16px;
-		background-color: var(--background);
 		color: var(--text);
+		background-color: var(--background);
+		margin: 0;
 	}
 
 	:global(h1) {
