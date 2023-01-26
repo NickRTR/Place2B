@@ -51,4 +51,4 @@ buildings(title)
 rooms(title, <ins>building</ins>)  
 position(title, <ins>room</ins>)
 
-items(title, quantity, <ins>building</ins>, <ins>room</ins>, <ins>position</ins>)
+items(title, quantity, *<ins>building</ins>*, *<ins>room</ins>*, *<ins>position</ins>*)
