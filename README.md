@@ -48,7 +48,7 @@ To start and restart the app automatically, create a systemd service:
 ## Database
 
 buildings(title)  
-rooms(title, *<ins>building</ins>*)  
-position(title, *<ins>room</ins>*)
+rooms(title, _<ins>building</ins>_)  
+position(title, _<ins>room</ins>_)
 
-items(title, quantity, *<ins>building</ins>*, *<ins>room</ins>*, *<ins>position</ins>*)
+items(title, quantity, _<ins>building</ins>_, _<ins>room</ins>_, _<ins>position</ins>_)
