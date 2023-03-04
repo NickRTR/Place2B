@@ -2,6 +2,7 @@
 	import pb from "$lib/pocketbase";
 
 	export let data;
+	const backupPositions = data.positions;
 
 	let selectedFilters = {
 		building: "",
@@ -24,12 +25,28 @@
 
 		if (selectedFilters.building.length > 0) {
 			filters.push(`building = ${JSON.stringify(selectedFilters.building)}`);
+			data.rooms = await pb.collection("rooms").getFullList(200 /* batch size */, {
+				sort: "title",
+				filter: `building = ${JSON.stringify(selectedFilters.building)}`
+			});
+		} else {
+			data.rooms = await pb.collection("rooms").getFullList(200 /* batch size */, {
+				sort: "title"
+			});
 		}
 		if (selectedFilters.room.length > 0) {
 			filters.push(`room = ${JSON.stringify(selectedFilters.room)}`);
 		}
 		if (selectedFilters.position.length > 0) {
 			filters.push(`position = ${JSON.stringify(selectedFilters.position)}`);
+		}
+
+		if (selectedFilters.room != "") {
+			data.positions = backupPositions.filter((p) => p.room == selectedFilters.room);
+		} else {
+			data.positions = backupPositions.filter((p) => {
+				return data.rooms.some((r) => r.id == p.room);
+			});
 		}
 
 		if (filters.length == 1) {
@@ -46,12 +63,12 @@
 			filterString += ")";
 		}
 
-		const res = await pb.collection("items").getFullList(200 /* batch size */, {
+		const itemsRes = await pb.collection("items").getFullList(200 /* batch size */, {
 			sort: "title",
 			filter: filterString
 		});
 
-		data.items = res;
+		data.items = itemsRes;
 	}
 </script>
 

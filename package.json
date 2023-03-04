@@ -6,7 +6,7 @@
 		"db": "./pocketbase/pocketbase serve --http='192.168.200.216:8090'",
 		"dev": "vite dev & ./pocketbase/pocketbase serve",
 		"build": "vite build",
-		"preview": "vite preview",
+		"preview": "vite build && vite preview",
 		"test:unit": "vitest",
 		"lint": "prettier --plugin-search-dir . --check .",
 		"format": "prettier --plugin-search-dir . --write ."
