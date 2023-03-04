@@ -13,7 +13,7 @@
 <style>
 	:global(:root) {
 		--background: #000000;
-		--text: #f1faee;
+		--text: white;
 		--accent: red;
 		--light-accent: #a8dadc;
 	}
