@@ -12,9 +12,9 @@
 
 <style>
 	:global(:root) {
-		--background: #1d3557;
+		--background: #000000;
 		--text: #f1faee;
-		--accent: #e63946;
+		--accent: red;
 		--light-accent: #a8dadc;
 	}
 
