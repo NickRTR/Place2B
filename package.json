@@ -1,6 +1,7 @@
 {
 	"name": "place2b",
-	"version": "0.0.1",
+	"author": "Nick Reutlinger",
+	"version": "1.0.0",
 	"private": true,
 	"scripts": {
 		"db": "./pocketbase/pocketbase serve --http='192.168.200.216:8090'",
