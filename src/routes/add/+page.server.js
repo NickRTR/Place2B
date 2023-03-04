@@ -27,11 +27,10 @@ export const actions = {
 	addItem: async ({ request }) => {
 		const data = await request.formData();
 		const title = data.get("title");
-		const quantity = data.get("quantity");
 		const building = data.get("building");
 		const room = data.get("room");
 		const position = data.get("position");
 		// create position database entry
-		await pb.collection("items").create({ title, quantity, building, room, position });
+		await pb.collection("items").create({ title, building, room, position });
 	}
 };

@@ -72,7 +72,7 @@
 	}
 </script>
 
-<body>
+<main>
 	<h1>Place2B</h1>
 
 	{#if data.error}
@@ -139,7 +139,7 @@
 			</div>
 		</div>
 	{/if}
-</body>
+</main>
 
 <style>
 	.error {

@@ -19,7 +19,7 @@
 	}
 </script>
 
-<body>
+<main>
 	<form method="POST" action="?/addBuilding" class="buildings" use:enhance>
 		<h2>Buildings</h2>
 		<input type="text" placeholder="title" name="title" id="title" required />
@@ -56,7 +56,6 @@
 	<form method="POST" action="?/addItem" class="items" use:enhance>
 		<h2>Items</h2>
 		<input type="text" placeholder="title" name="title" id="title" required />
-		<input type="text" placeholder="quantity" name="quantity" id="quantity" />
 		<select name="building" id="building" bind:value={selectedBuilding} required>
 			{#each data.buildings as building}
 				<option value={building.id}>{building.title}</option>
@@ -74,7 +73,7 @@
 		</select>
 		<button type="submit">Add item</button>
 	</form>
-</body>
+</main>
 
 <style>
 	h2 {

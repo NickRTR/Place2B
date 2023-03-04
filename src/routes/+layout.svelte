@@ -27,6 +27,7 @@
 		color: var(--text);
 		background-color: var(--background);
 		margin: 0;
+		padding-inline: 0.5rem;
 	}
 
 	:global(h1) {

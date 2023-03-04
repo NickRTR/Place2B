@@ -4,7 +4,7 @@
 	export let data;
 </script>
 
-<body>
+<main>
 	<form method="POST" action="?/deleteBuilding" class="buildings" use:enhance>
 		<h2>Buildings</h2>
 		<select name="building" id="building" required>
@@ -54,7 +54,7 @@
 			><strong>No confirmation needed</strong></u
 		>.
 	</p>
-</body>
+</main>
 
 <style>
 	h2 {
