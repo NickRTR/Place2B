@@ -33,7 +33,7 @@ To start and restart the app automatically, create a systemd service:
    WantedBy = multi-user.target
    ```
 
-3. Replace <user> and <PathToPlace2B> with your user
+3. Replace \<user\> and \<PathToPlace2B\> with your user
 4. `sudo systemctl enable Place2B.service`
 5. `sudo systemctl start Place2B`
 
