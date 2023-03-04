@@ -20,7 +20,7 @@ export const actions = {
 		const data = await request.formData();
 		const title = data.get("title");
 		const room = data.get("room");
-		// create building database entry
+		// create room database entry
 		await pb.collection("positions").create({ title, room });
 	},
 
@@ -31,7 +31,7 @@ export const actions = {
 		const building = data.get("building");
 		const room = data.get("room");
 		const position = data.get("position");
-		// create building database entry
+		// create position database entry
 		await pb.collection("items").create({ title, quantity, building, room, position });
 	}
 };

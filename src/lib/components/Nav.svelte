@@ -6,6 +6,12 @@
 		data-sveltekit-preload-code
 		data-sveltekit-preload-data>Add</a
 	>
+	<a
+		href="/delete"
+		title="Remove buildings, rooms, positions and items"
+		data-sveltekit-preload-code
+		data-sveltekit-preload-data>Delete</a
+	>
 </nav>
 
 <style>
