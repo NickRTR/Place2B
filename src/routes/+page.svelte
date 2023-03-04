@@ -79,7 +79,7 @@
 		<p class="error">Error: {data.error.message}</p>
 	{:else}
 		<div class="buildings">
-			<h3 class="headline" id="buildings">Buildings</h3>
+			<h3 class="headline">Buildings</h3>
 			<div class="elements">
 				{#each data.buildings as building}
 					<button
@@ -89,12 +89,14 @@
 						class:active={selectedFilters.building == building.id}
 						class="element">{building.title}</button
 					>
+				{:else}
+					<p>No buildings available; <a href="/add">add new building</a></p>
 				{/each}
 			</div>
 		</div>
 
 		<div class="rooms">
-			<h3 class="headline" id="rooms">Rooms</h3>
+			<h3 class="headline">Rooms</h3>
 			<div class="elements">
 				{#each data.rooms as room}
 					<button
@@ -104,12 +106,14 @@
 						class:active={selectedFilters.room == room.id}
 						class="element">{room.title}</button
 					>
+				{:else}
+					<p>No rooms available; <a href="/add">add new room</a></p>
 				{/each}
 			</div>
 		</div>
 
 		<div class="positions">
-			<h3 class="headline" id="positions">Positions</h3>
+			<h3 class="headline">Positions</h3>
 			<div class="elements">
 				{#each data.positions as position}
 					<button
@@ -119,6 +123,8 @@
 						class:active={selectedFilters.position == position.id}
 						class="element">{position.title}</button
 					>
+				{:else}
+					<p>No positions available; <a href="/add">add new position</a></p>
 				{/each}
 			</div>
 		</div>
@@ -127,6 +133,8 @@
 			<div class="elements">
 				{#each data.items as item}
 					<p class="element">{item.title}</p>
+				{:else}
+					<p>No matching items available; <a href="/add">add new item</a></p>
 				{/each}
 			</div>
 		</div>
@@ -141,30 +149,12 @@
 	.headline {
 		display: inline;
 		padding: 0.25rem 0.5rem;
-	}
-
-	#buildings {
 		border-radius: 0.5rem;
 		border: 3px solid var(--accent);
 	}
 
-	#rooms {
-		border-radius: 2rem;
-		border: 3px solid var(--accent);
-	}
-
-	#positions {
-		border-radius: 2rem;
-		border: 3px dashed var(--accent);
-	}
-
 	.items {
 		border-top: 3px solid var(--accent);
-	}
-
-	.items .elements {
-		border: none;
-		padding-left: 0;
 	}
 
 	.elements {
@@ -174,6 +164,11 @@
 		max-width: 300px;
 		flex-wrap: wrap;
 		margin-block: 1rem;
+	}
+
+	.items .elements {
+		border: none;
+		padding-left: 0;
 	}
 
 	.element {

@@ -2,6 +2,21 @@
 	import { enhance } from "$app/forms";
 
 	export let data;
+	const backupRooms = data.rooms;
+	const backupPositions = data.positions;
+
+	let selectedBuilding;
+	let selectedRoom;
+
+	$: {
+		data.rooms = backupRooms.filter((r) => {
+			return selectedBuilding == r.building;
+		});
+
+		data.positions = backupPositions.filter((p) => {
+			return selectedRoom == p.room;
+		});
+	}
 </script>
 
 <body>
@@ -14,7 +29,7 @@
 	<form method="POST" action="?/addRoom" class="rooms" use:enhance>
 		<h2>Rooms</h2>
 		<input type="text" placeholder="title" name="title" id="title" required />
-		<select name="building" id="building" required>
+		<select name="building" id="building" bind:value={selectedBuilding} required>
 			{#each data.buildings as building}
 				<option value={building.id}>{building.title}</option>
 			{/each}
@@ -25,6 +40,11 @@
 	<form method="POST" action="?/addPosition" class="positions" use:enhance>
 		<h2>Positions</h2>
 		<input type="text" placeholder="title" name="title" id="title" required />
+		<select name="building" id="building" bind:value={selectedBuilding} required>
+			{#each data.buildings as building}
+				<option value={building.id}>{building.title}</option>
+			{/each}
+		</select>
 		<select name="room" id="room" required>
 			{#each data.rooms as room}
 				<option value={room.id}>{room.title}</option>
@@ -37,12 +57,12 @@
 		<h2>Items</h2>
 		<input type="text" placeholder="title" name="title" id="title" required />
 		<input type="text" placeholder="quantity" name="quantity" id="quantity" />
-		<select name="building" id="building" required>
+		<select name="building" id="building" bind:value={selectedBuilding} required>
 			{#each data.buildings as building}
 				<option value={building.id}>{building.title}</option>
 			{/each}
 		</select>
-		<select name="room" id="room" required>
+		<select name="room" id="room" bind:value={selectedRoom} required>
 			{#each data.rooms as room}
 				<option value={room.id}>{room.title}</option>
 			{/each}
@@ -55,3 +75,9 @@
 		<button type="submit">Add item</button>
 	</form>
 </body>
+
+<style>
+	h2 {
+		color: var(--accent);
+	}
+</style>
