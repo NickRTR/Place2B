@@ -27,7 +27,7 @@
 		background-color: var(--background);
 		margin: 0;
 		padding-inline: 0.5rem;
-		max-width: 800px;
+		max-width: 600px;
 		margin-inline: auto;
 	}
 
