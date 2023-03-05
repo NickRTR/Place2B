@@ -39,10 +39,12 @@ export const actions = {
 		const room = data.get("room");
 		const position = data.get("position");
 		const image = data.get("image");
+		console.log(image);
 		try {
 			if (image.size == 0) {
 				await pb.collection("items").create({ title, building, room, position });
 			} else {
+				console.log("sdhould");
 				await pb.collection("items").create({ title, image, building, room, position });
 			}
 		} catch (error) {

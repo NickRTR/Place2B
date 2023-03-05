@@ -132,7 +132,7 @@
 		<div class="items">
 			<div class="elements">
 				{#each data.items as item}
-					<p class="element">{item.title}</p>
+					<a class="element" href="/item/{item.id}">{item.title}</a>
 				{:else}
 					<p>No matching items available; <a href="/add">add new item</a></p>
 				{/each}

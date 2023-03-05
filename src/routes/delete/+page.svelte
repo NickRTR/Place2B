@@ -2,9 +2,16 @@
 	import { enhance } from "$app/forms";
 
 	export let data;
+	export let form;
 </script>
 
 <main>
+	{#if form?.error}
+		<p style="color: tomato">Error: Failed to add data!</p>
+	{:else if form?.success}
+		<p style="color: greenyellow">Success!</p>
+	{/if}
+
 	<form method="POST" action="?/deleteBuilding" class="buildings" use:enhance>
 		<h2>Buildings</h2>
 		<select name="building" id="building" required>
