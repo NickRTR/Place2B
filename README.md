@@ -4,8 +4,9 @@ An app to organize all the items in your home.
 
 ## Features
 
-- add and delete new buildings, rooms and positions
-- add and remvoe new items and assign them a location
+- add or delete new buildings, rooms and positions
+- add or delete new items and assign them a location
+- add images to your items to quickly recognize their location
 - search for items to get their location
 - item page with QR-Code generator to put QR-Codes on your real-world items and find them with Place2B
 
