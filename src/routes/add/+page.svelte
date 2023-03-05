@@ -1,20 +1,25 @@
 <script>
 	import { enhance } from "$app/forms";
+	import pb from "$lib/pocketbase";
 
 	export let form;
 
 	export let data;
-	const backupRooms = data.rooms;
-	const backupPositions = data.positions;
 
-	function filterRooms(building) {
-		data.rooms = backupRooms.filter((r) => {
+	async function filterRooms(building) {
+		data.rooms = await pb.collection("rooms").getFullList(200 /* batch size */, {
+			sort: "-created"
+		});
+		data.rooms = data.rooms.filter((r) => {
 			return building == r.building;
 		});
 	}
 
-	function filterPositions(room) {
-		data.positions = backupPositions.filter((p) => {
+	async function filterPositions(room) {
+		data.positions = await pb.collection("positions").getFullList(200 /* batch size */, {
+			sort: "-created"
+		});
+		data.positions = data.positions.filter((p) => {
 			return room == p.room;
 		});
 	}
@@ -38,7 +43,7 @@
 	<form method="POST" action="?/addRoom" class="rooms" use:enhance>
 		<h2>Rooms</h2>
 		<input type="text" placeholder="title" name="title" id="title" required />
-		<select name="building" id="building" changerequired>
+		<select name="building" id="building" required>
 			<option value="" selected>-select-</option>
 			{#each data.buildings as building}
 				<option value={building.id}>{building.title}</option>
@@ -54,8 +59,8 @@
 			<option value="" selected>-select-</option>
 			{#each data.buildings as building}
 				<option
-					on:click={() => {
-						filterRooms(building.id);
+					on:click={async () => {
+						await filterRooms(building.id);
 					}}
 					value={building.id}>{building.title}</option
 				>
@@ -77,8 +82,8 @@
 			<option value="" selected>-select-</option>
 			{#each data.buildings as building}
 				<option
-					on:click={() => {
-						filterRooms(building.id);
+					on:click={async () => {
+						await filterRooms(building.id);
 					}}
 					value={building.id}>{building.title}</option
 				>
@@ -88,8 +93,8 @@
 			<option value="" selected>-select-</option>
 			{#each data.rooms as room}
 				<option
-					on:click={() => {
-						filterPositions(room.id);
+					on:click={async () => {
+						await filterPositions(room.id);
 					}}
 					value={room.id}>{room.title}</option
 				>

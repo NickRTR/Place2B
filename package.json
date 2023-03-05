@@ -21,6 +21,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"pocketbase": "^0.9.1"
+		"pocketbase": "^0.9.1",
+		"svelte-qrcode": "^1.0.0"
 	}
 }
