@@ -49,7 +49,7 @@
 	<hr />
 
 	<p class="warning">
-		Be careful, deleting a building deletes all its rooms, positions and items. Deleting a Room
+		Be careful, deleting a building deletes all its rooms, positions and items. Deleting a room
 		deletes all its corresponding positions and items and deleting a position deletes all its items. <u
 			><strong>No confirmation needed</strong></u
 		>.
