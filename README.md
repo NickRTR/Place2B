@@ -1,6 +1,14 @@
 # Place2B
 
-An app to organize all the items in your home
+An app to organize all the items in your home.
+
+## Features
+
+- add or delete new buildings, rooms and positions
+- add or delete new items and assign them a location
+- add images to your items to quickly recognize their location
+- search for items to get their location
+- item page with QR-Code generator to put QR-Codes on your real-world items and find them with Place2B
 
 ## Run it on your (linux) server:
 
@@ -50,18 +58,10 @@ To start and restart the app automatically, create a systemd service:
 9. `mv pocketbase/ Place2B/`
    10 `sudo systemctl restart Place2B`
 
-## Project Requirements
-
-- item's location is divided into building (garage, house, garden, ...), room and position (drawer, sideboard, ...)
-- add new buildings, rooms and position
-- add new items and assign them a location
-- search for items to get their location
-- show all items in one building, room or position
-
 ## Database
 
 buildings(title)  
 rooms(title, _<ins>building</ins>_)  
 position(title, _<ins>room</ins>_)
 
-items(title, _<ins>building</ins>_, _<ins>room</ins>_, _<ins>position</ins>_)
+items(title, image, _<ins>building</ins>_, _<ins>room</ins>_, _<ins>position</ins>_)
