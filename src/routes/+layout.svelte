@@ -12,10 +12,9 @@
 
 <style>
 	:global(:root) {
-		--background: #000000;
+		--background: black;
 		--text: white;
 		--accent: red;
-		--light-accent: #a8dadc;
 	}
 
 	:global(*) {
@@ -41,7 +40,7 @@
 	}
 
 	:global(a:hover) {
-		color: var(--light-accent);
+		font-weight: bold;
 	}
 
 	:global(.error) {

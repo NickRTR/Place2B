@@ -8,7 +8,6 @@
 
 	async function search() {
 		if (searchInput != "") {
-			console.log(searchInput);
 			data.items = await pb.collection("items").getFullList(200 /* batch size */, {
 				sort: "title",
 				filter: `title~${JSON.stringify(searchInput)}`
@@ -18,7 +17,6 @@
 				sort: "title"
 			});
 		}
-		console.log(data.items);
 	}
 
 	let selectedFilters = {
