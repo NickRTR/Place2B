@@ -44,7 +44,7 @@ To start and restart the app automatically, create a systemd service:
 3. `cd ..`
 4. `rm -rf /Place2B`
 5. `git clone https://github.com/NickRTR/Place2B.git`
-6. cd `/Place2B`
+6. `cd /Place2B`
 7. `rm -r pocketbase/`
 8. `cd ..`
 9. `mv pocketbase/ Place2B/`
