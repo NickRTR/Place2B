@@ -37,7 +37,15 @@ To start and restart the app automatically, create a systemd service:
 4. `sudo systemctl enable Place2B.service`
 5. `sudo systemctl start Place2B`
 
-## Requirements
+### Update
+
+1. Move your pocketbase folder out of `/Place2B`  (otherwise, all your data will be lost)
+2. delete the `/Place2B` folder
+3. `git clone https://github.com/NickRTR/Place2B.git`
+4. Move your pocketbase folder back into `/Place2B`
+4. `sudo systemctl restart Place2B`
+
+## Project Requirements
 
 - item's location is divided into building (garage, house, garden, ...), room and position (drawer, sideboard, ...)
 - add new buildings, rooms and position
@@ -51,4 +59,4 @@ buildings(title)
 rooms(title, _<ins>building</ins>_)  
 position(title, _<ins>room</ins>_)
 
-items(title, quantity, _<ins>building</ins>_, _<ins>room</ins>_, _<ins>position</ins>_)
+items(title, _<ins>building</ins>_, _<ins>room</ins>_, _<ins>position</ins>_)
