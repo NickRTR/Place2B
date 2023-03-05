@@ -2,6 +2,8 @@
 
 An app to organize all the items in your home.
 
+<img src="https://user-images.githubusercontent.com/95316598/222986639-8462f3d7-5b81-4a1b-bd13-8a6cee8e3fc4.png" width="500px">
+
 ## Features
 
 - add or delete new buildings, rooms and positions
