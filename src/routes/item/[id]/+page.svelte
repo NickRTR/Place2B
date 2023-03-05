@@ -1,19 +1,26 @@
 <script>
 	export let data;
+
+	console.log(data);
 </script>
 
 <main>
 	<h1>{data.item.title}</h1>
 
 	{#if data.error}
-		<p style="color: tomato">Error: Failed to retrieve data!</p>
+		<p class="error">Error: Failed to retrieve data!</p>
 	{/if}
 
-	<img src={data.image} width="50%" alt="not available" />
+	<!-- svelte-ignore a11y-img-redundant-alt -->
+	<img src={data.image} width="50%" alt="(No image available)" />
 
-	<p>Building: {data.building.title}</p>
-	<p>Room: {data.room.title}</p>
-	<p>Position: {data.position.title}</p>
+	<p><strong>Building</strong>: {data.building.title}</p>
+	<p><strong>Room</strong>: {data.room.title}</p>
+	<p><strong>Position</strong>: {data.position.title}</p>
 </main>
 
-<style></style>
+<style>
+	img {
+		font-style: italic;
+	}
+</style>

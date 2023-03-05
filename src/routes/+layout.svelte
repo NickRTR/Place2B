@@ -28,6 +28,8 @@
 		background-color: var(--background);
 		margin: 0;
 		padding-inline: 0.5rem;
+		max-width: 800px;
+		margin-inline: auto;
 	}
 
 	:global(h1) {
@@ -42,8 +44,11 @@
 		color: var(--light-accent);
 	}
 
-	body {
-		max-width: 800px;
-		margin-inline: auto;
+	:global(.error) {
+		color: tomato;
+	}
+
+	:global(.success) {
+		color: greenyellow;
 	}
 </style>

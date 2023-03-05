@@ -4,6 +4,23 @@
 	export let data;
 	const backupPositions = data.positions;
 
+	let searchInput = "";
+
+	async function search() {
+		if (searchInput != "") {
+			console.log(searchInput);
+			data.items = await pb.collection("items").getFullList(200 /* batch size */, {
+				sort: "title",
+				filter: `title~${JSON.stringify(searchInput)}`
+			});
+		} else {
+			data.items = await pb.collection("items").getFullList(200 /* batch size */, {
+				sort: "title"
+			});
+		}
+		console.log(data.items);
+	}
+
 	let selectedFilters = {
 		building: "",
 		room: "",
@@ -75,6 +92,11 @@
 <main>
 	<h1>Place2B</h1>
 
+	<h2># Search</h2>
+	<input type="text" bind:value={searchInput} on:input={search} placeholder="Search" />
+
+	<h2># Filter</h2>
+
 	{#if data.error}
 		<p class="error">Error: {data.error.message}</p>
 	{:else}
@@ -129,6 +151,8 @@
 			</div>
 		</div>
 
+		<h2># Items / Result</h2>
+
 		<div class="items">
 			<div class="elements">
 				{#each data.items as item}
@@ -142,19 +166,11 @@
 </main>
 
 <style>
-	.error {
-		color: red;
-	}
-
 	.headline {
 		display: inline;
 		padding: 0.25rem 0.5rem;
 		border-radius: 0.5rem;
 		border: 3px solid var(--accent);
-	}
-
-	.items {
-		border-top: 3px solid var(--accent);
 	}
 
 	.elements {
@@ -164,11 +180,6 @@
 		max-width: 300px;
 		flex-wrap: wrap;
 		margin-block: 1rem;
-	}
-
-	.items .elements {
-		border: none;
-		padding-left: 0;
 	}
 
 	.element {

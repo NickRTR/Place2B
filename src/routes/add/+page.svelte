@@ -21,10 +21,12 @@
 </script>
 
 <main>
+	<h1>Place2B - Add</h1>
+
 	{#if form?.error}
-		<p style="color: tomato">Error: Failed to add data!</p>
+		<p class="error">Error: Failed to add data!</p>
 	{:else if form?.success}
-		<p style="color: greenyellow">Success!</p>
+		<p class="success">Success!</p>
 	{/if}
 
 	<form method="POST" action="?/addBuilding" class="buildings" use:enhance>
@@ -110,9 +112,3 @@
 		<button type="submit">Add item</button>
 	</form>
 </main>
-
-<style>
-	h2 {
-		color: var(--accent);
-	}
-</style>

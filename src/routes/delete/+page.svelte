@@ -6,10 +6,12 @@
 </script>
 
 <main>
+	<h1>Place2B - Delete</h1>
+
 	{#if form?.error}
-		<p style="color: tomato">Error: Failed to add data!</p>
+		<p class="error">Error: Failed to add data!</p>
 	{:else if form?.success}
-		<p style="color: greenyellow">Success!</p>
+		<p class="success">Success!</p>
 	{/if}
 
 	<form method="POST" action="?/deleteBuilding" class="buildings" use:enhance>
@@ -55,20 +57,10 @@
 	<br />
 	<hr />
 
-	<p class="warning">
+	<p class="error">
 		Be careful, deleting a building deletes all its rooms, positions and items. Deleting a room
 		deletes all its corresponding positions and items and deleting a position deletes all its items. <u
 			><strong>No confirmation needed</strong></u
 		>.
 	</p>
 </main>
-
-<style>
-	h2 {
-		color: var(--accent);
-	}
-
-	.warning {
-		color: tomato;
-	}
-</style>
