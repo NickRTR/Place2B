@@ -39,11 +39,16 @@ To start and restart the app automatically, create a systemd service:
 
 ### Update
 
-1. Move your pocketbase folder out of `/Place2B`  (otherwise, all your data will be lost)
-2. delete the `/Place2B` folder
-3. `git clone https://github.com/NickRTR/Place2B.git`
-4. Move your pocketbase folder back into `/Place2B`
-4. `sudo systemctl restart Place2B`
+1. `cd /Place2B`
+2. `mv ./pocketbase ../`
+3. `cd ..`
+4. `rm -rf /Place2B`
+5. `git clone https://github.com/NickRTR/Place2B.git`
+6. cd `/Place2B`
+7. `rm -r pocketbase/`
+8. `cd ..`
+9. `mv pocketbase/ Place2B/`
+10 `sudo systemctl restart Place2B`
 
 ## Project Requirements
 
