@@ -1,5 +1,5 @@
 <script>
-	import QrCode from "svelte-qrcode";
+	import QRCode from "$lib/components/QRCode.svelte";
 	import { page } from "$app/stores";
 
 	export let data;
@@ -23,7 +23,7 @@
 
 	<p>
 		<strong>QR-Code to this page:</strong><br /><br />
-		<QrCode value={$page.url.href} /><br /><br />
+		<QRCode value={$page.url.href} /><br /><br />
 		<i>Right click -> Open in new tab -> print</i>
 	</p>
 </main>
