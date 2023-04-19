@@ -58,7 +58,7 @@ To start and restart the app automatically, create a systemd service:
 7. `rm -r pocketbase/`
 8. `cd ..`
 9. `mv pocketbase/ Place2B/`
-   10 `sudo systemctl restart Place2B`
+10. `sudo systemctl restart Place2B`
 
 ## Database
 
