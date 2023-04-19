@@ -1,6 +1,7 @@
 <script>
-	import QRCode from "$lib/components/QRCode.svelte";
+	import { enhance } from "$app/forms";
 	import { page } from "$app/stores";
+	import QRCode from "$lib/components/QRCode.svelte";
 
 	export let data;
 </script>
@@ -13,7 +14,25 @@
 	{/if}
 
 	<!-- svelte-ignore a11y-img-redundant-alt -->
-	<img src={data.image} width="50%" alt="(No image available)" />
+	<form class="image" method="POST" action="?/editItemImage" use:enhance>
+		<img src={data.image} width="50%" alt="(No image available)" />
+		<br />
+
+		<input type="hidden" name="id" value={data.item.id} />
+		<input type="hidden" name="title" value={data.item.title} />
+		<input type="hidden" name="room" value={data.room.id} />
+		<input type="hidden" name="building" value={data.building.id} />
+		<input type="hidden" name="position" value={data.position.id} />
+		<input
+			type="file"
+			placeholder="Add or edit image"
+			name="image"
+			id="image"
+			accept=".jpg, .png, .webp, .gif, .svg"
+		/>
+
+		<button type="submit">Add/Edit image</button>
+	</form>
 
 	<p><strong>Building</strong>: {data.building.title}</p>
 	<p><strong>Room</strong>: {data.room.title}</p>

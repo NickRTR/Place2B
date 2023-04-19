@@ -43,9 +43,11 @@ export const actions = {
 			if (image.size == 0) {
 				await pb.collection("items").create({ title, building, room, position });
 			} else {
+				console.log(data[5]);
 				await pb.collection("items").create(data);
 			}
 		} catch (error) {
+			console.log(error);
 			return fail(400, { error: true });
 		}
 		return { success: true };
