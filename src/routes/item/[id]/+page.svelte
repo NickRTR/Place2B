@@ -45,6 +45,14 @@
 		<QRCode value={$page.url.href} /><br /><br />
 		<i>Right click -> Open in new tab -> print</i>
 	</p>
+
+	<hr />
+
+	<!-- svelte-ignore a11y-img-redundant-alt -->
+	<form class="image" method="POST" action="?/deleteItem" use:enhance>
+		<input type="hidden" name="id" value={data.item.id} />
+		<button type="submit">Delete item</button>
+	</form>
 </main>
 
 <style>
